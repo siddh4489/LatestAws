@@ -54,8 +54,70 @@ public class AwsService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getprivateRecord(@HeaderParam("sfid") String sfid) throws ParseException, SQLException, ClassNotFoundException {
         Connection conn = AwsConnection.getConnection();
-        return Response.status(201).entity(FinancialDataManager.getPrivateRecord(conn, sfid)).build();
+        return Response.status(201).entity(FinancialDataManager.getPrivateActualRecord(conn, sfid)).build();
     }
+    @POST
+    @Path("/getprivateprojectionrecord")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getprivateProjectionRecord(@HeaderParam("sfid") String sfid) throws ParseException, SQLException, ClassNotFoundException {
+        Connection conn = AwsConnection.getConnection();
+        return Response.status(201).entity(FinancialDataManager.getPrivateProjectionRecords(conn, sfid)).build();
+    }
+    @POST
+    @Path("/getpublicprojectionrecord")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getpublicProjectionRecord(@HeaderParam("sfid") String sfid) throws ParseException, SQLException, ClassNotFoundException {
+        Connection conn = AwsConnection.getConnection();
+        return Response.status(201).entity(FinancialDataManager.getPublicProjectionRecord(conn, sfid)).build();
+    }
+    @POST
+    @Path("/getprivateprojectionrecordbydate")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getprivateprojectionrecordbydate(@HeaderParam("sfid") String sfid,@HeaderParam("datestr") String datestr) throws ParseException, SQLException, ClassNotFoundException {
+        Connection conn = AwsConnection.getConnection();
+        return Response.status(201).entity(FinancialDataManager.getPrivateProjectionRecordsByDate(conn, sfid,datestr)).build();
+    }
+    @POST
+    @Path("/getpublicprojectionrecordbydate")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getpublicprojectionrecordbydate(@HeaderParam("sfid") String sfid,@HeaderParam("datestr") String datestr) throws ParseException, SQLException, ClassNotFoundException {
+        Connection conn = AwsConnection.getConnection();
+        return Response.status(201).entity(FinancialDataManager.getPublicProjectionRecordByDate(conn, sfid,datestr)).build();
+    }
+    
+    @POST
+    @Path("/getdeleteprivateprojectionrecord")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getdeleteprivateprojectionrecord(@HeaderParam("sfid") String sfid,@HeaderParam("datestr") String datestr) throws ParseException, SQLException, ClassNotFoundException {
+        Connection conn = AwsConnection.getConnection();
+        FinancialDataManager.getDeletePrivateProjectionRecord(conn, sfid,datestr);
+        return Response.status(201).entity(FinancialDataManager.getPrivateProjectionRecords(conn, sfid)).build();
+    }
+    
+    @POST
+    @Path("/getdeletepublicprojectionrecord")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getdeletepublicprojectionrecord(@HeaderParam("sfid") String sfid,@HeaderParam("datestr") String datestr) throws ParseException, SQLException, ClassNotFoundException {
+        Connection conn = AwsConnection.getConnection();
+        FinancialDataManager.getDeletePrivateProjectionRecord(conn, sfid,datestr);
+        return Response.status(201).entity(FinancialDataManager.getPublicProjectionRecord(conn, sfid)).build();
+    }
+    
+    @POST
+    @Path("/getprivateprojectionrecordsdate")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getPrivateProjectionRecordsDate(@HeaderParam("sfid") String sfid) throws ParseException, SQLException, ClassNotFoundException {
+        Connection conn = AwsConnection.getConnection();
+        return Response.status(201).entity(FinancialDataManager.getPrivateProjectionRecordsDate(conn, sfid)).build();
+    }
+    @POST
+    @Path("/getpublicprojectionrecordsdate")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getPublicProjectionRecordsDate(@HeaderParam("sfid") String sfid) throws ParseException, SQLException, ClassNotFoundException {
+        Connection conn = AwsConnection.getConnection();
+        return Response.status(201).entity(FinancialDataManager.getPrivateProjectionRecordsDate(conn, sfid)).build();
+    }
+    
     @GET
     @Path("/checkcompanydata")
     @Produces(MediaType.APPLICATION_JSON)
@@ -63,6 +125,7 @@ public class AwsService {
         return Response.status(201).entity(CompanyDataManager.checkRecord(cid)).build();
     }
 
+    
     @POST
     @Path("/getpublicrecord")
     @Consumes(MediaType.APPLICATION_JSON)

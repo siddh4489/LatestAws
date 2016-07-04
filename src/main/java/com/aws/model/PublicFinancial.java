@@ -12,8 +12,17 @@ package com.aws.model;
 public class PublicFinancial {
 
     // Company Type
-
     public String cmptype;
+    public String datevalue;
+    public String operation;
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
 
     public String getSfdcunique() {
         return sfdcunique;
@@ -26,6 +35,14 @@ public class PublicFinancial {
 
     public String getTabtype() {
         return tabtype;
+    }
+
+    public String getDatevalue() {
+        return datevalue;
+    }
+
+    public void setDatevalue(String datevalue) {
+        this.datevalue = datevalue;
     }
 
     public void setTabtype(String tabtype) {
@@ -141,7 +158,7 @@ public class PublicFinancial {
     public String punil;
     // Cash
     public String pucash;
-  
+
     // Total Current Liabilities
     public String putcl;
     // Cash and Equivalents
@@ -482,7 +499,6 @@ public class PublicFinancial {
     public void setPucash(String pucash) {
         this.pucash = pucash;
     }
-
 
     public String getPutcl() {
         return putcl;

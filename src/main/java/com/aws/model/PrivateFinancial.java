@@ -10,6 +10,24 @@ public class PrivateFinancial {
     public String getCmptype() {
         return cmptype;
     }
+    public String datevalue;
+    public String operation;
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+
+    public String getDatevalue() {
+        return datevalue;
+    }
+
+    public void setDatevalue(String datevalue) {
+        this.datevalue = datevalue;
+    }
 
     public void setCmptype(String cmptype) {
         this.cmptype = cmptype;
