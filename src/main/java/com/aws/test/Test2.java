@@ -22,15 +22,17 @@ public class Test2 {
        Connection conn = AwsConnection.getConnection();
        //System.out.println("--private--"+FinancialDataManager.getPrivateRecord(conn, "0012800000dw2X3"));
       // System.out.println("--public--"+FinancialDataManager.getPublicRecord(conn, "0012800000dw2XIAAY"));
-      // System.out.println("--private projection--"+FinancialDataManager.getPrivateProjectionRecords(conn, "0012800000dw2X3AAI"));
       // System.out.println("--rojection Date--"+FinancialDataManager.getPrivateProjectionRecordsDate(conn, "0012800000dw2X3AAI"));
       // System.out.println("--rojection Date--"+FinancialDataManager.getPrivateProjectionRecordsByDate(conn, "0012800000dw2X3AAI","02/07/2016"));
-      //  System.out.println("--private Actuals--"+FinancialDataManager.getPrivateActualRecord(conn, "0012800000dw2X3AAI"));
+       //System.out.println("--private Actuals--"+FinancialDataManager.getPrivateActualRecord(conn, "0012800000jAOP4AAO"));
+          //   System.out.println("--private projection--"+FinancialDataManager.getPrivateProjectionRecords(conn, "0012800000jAOP4AAO"));
+
+       // System.out.println("--private Actuals--"+FinancialDataManager.Verify());
         //FinancialDataManager.update(conn, "0012800000dw2X3_0","2018");
-      // System.out.println("-- delete --"+FinancialDataManager.getDelete(conn, "0012800000dw2X3AAI"));
+       System.out.println("-- delete --"+FinancialDataManager.getDelete(conn, "0012800000jAOP4AAO"));
        
        //System.out.println("-- public projection --"+FinancialDataManager.getPublicProjectionRecord(conn, "0012800000dw2XIAAY"));
-       System.out.println("-- public Actual --"+FinancialDataManager.getPublicRecord(conn, "0012800000dw2XIAAY"));
+       ///System.out.println("-- public Actual --"+FinancialDataManager.getPublicRecord(conn, "0012800000dw2XIAAY"));
     }
 
 }

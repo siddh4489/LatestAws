@@ -458,6 +458,7 @@ public class FinancialDataManager {
         while (rs.next()) {
             System.out.println(i + "--sfdcunique---" + rs.getString("sfdcunique"));
             System.out.println(i + "--Year---" + rs.getString("type"));
+            System.out.println(i + "--Total Revenue Value---" + rs.getString("Total Revenue Value"));
             jsonstr += "\"year_" + i + "\":\"" + rs.getString("Year") + "\",";
             jsonstr += "\"qtr_" + i + "\":\"" + rs.getString("Quarter") + "\",";
             jsonstr += "\"rev_" + i + "\":\"" + rs.getString("Total Revenue Value") + "\",";
@@ -1359,7 +1360,7 @@ public class FinancialDataManager {
         PreparedStatement pst = null;
         ResultSet rs = null;
         boolean flag = false;
-        pst = conn.prepareStatement("SELECT * FROM reports WHERE sfid='" + sfdcId + "'");
+        pst = conn.prepareStatement("SELECT * FROM reports WHERE sfid='" + sfdcId + "' AND \"type\" ='Actuals'");
         rs = pst.executeQuery();
         if (rs.next()) {
             flag = true;
